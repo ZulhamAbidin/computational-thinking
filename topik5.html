@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+    <title>TOPIK 5</title>
+  <link rel="icon" type="image/png" href="src/images/favicon.png" />
+
+  <!-- Master Frond End -->
+  <script src="src/js/app.js" defer></script>
+  <link rel="stylesheet" href="src/css/app.css" />
+
+  <!-- Frond End Tailwind Yang Perubahanya Dipantau -->
+  <link rel="stylesheet" href="src/css/output.css">
+
+  <script>
+    localStorage.getItem("_x_darkMode_on") === "true" && document.documentElement.classList.add("dark");
+  </script>
+
+</head>
+
+<body x-data x-bind="$store.global.documentBody" class="is-header-blur navigation:horizontal">
+
+  <!-- App preloader-->
+  <div class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900">
+    <img class="h-11 w-11 mx-auto transition-transform spinner animate-spin duration-500 rotate-[360deg]"
+      src="src/images/app-logo.svg" alt="logo" />
+    <p class="mt-3 font-semibold"> TABE' GESER GESERKI SEDIKIT JELEK JARINGAN TA' </p>
+  </div>
+
+  <!-- Page Wrapper -->
+  <div id="root" class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900" x-cloak>
+    <!-- Sidebar -->
+
+    <!-- Sidebar Panel -->
+    <div class="sidebar-panel">
+      <div class="flex h-full grow flex-col bg-white dark:bg-navy-750">
+        <!-- Sidebar Panel Header -->
+        <div class="flex h-18 w-full items-center justify-between pl-4 pr-1">
+          <div class="flex">
+            <img class="h-11 w-11 transition-transform duration-500 ease-in-out hover:rotate-[360deg]"
+              src="src/images/app-logo.svg" alt="logo" />
+            <span class="flex items-center font-semibold pl-1">COMPUTASIONAL THINGKING</span>
+          </div>
+
+          <button @click="$store.global.isSidebarExpanded = false"
+            class="btn h-7 w-7 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent-light/80 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 xl:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Sidebar Panel Body -->
+        <div x-data="{expandedItem:'menu-item-3'}" class="h-[calc(100%-4.5rem)] overflow-x-hidden pb-6"
+          x-init="$el._x_simplebar = new SimpleBar($el);">
+
+
+          <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
+
+
+          <ul class="flex flex-1 flex-col px-4 font-inter">
+
+            <li>
+              <a x-data="navLink" href="index.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2"><svg class="h-6 w-6" xmlns="../www.w3.org/2000/svg.html"
+                    fill="none" viewBox="0 0 24 24">
+                    <path fill="currentColor" fill-opacity=".3"
+                      d="M5 14.059c0-1.01 0-1.514.222-1.945.221-.43.632-.724 1.453-1.31l4.163-2.974c.56-.4.842-.601 1.162-.601.32 0 .601.2 1.162.601l4.163 2.974c.821.586 1.232.88 1.453 1.31.222.43.222.935.222 1.945V19c0 .943 0 1.414-.293 1.707C18.414 21 17.943 21 17 21H7c-.943 0-1.414 0-1.707-.293C5 20.414 5 19.943 5 19v-4.94Z" />
+                    <path fill="currentColor"
+                      d="M3 12.387c0 .267 0 .4.084.441.084.041.19-.04.4-.204l7.288-5.669c.59-.459.885-.688 1.228-.688.343 0 .638.23 1.228.688l7.288 5.669c.21.163.316.245.4.204.084-.04.084-.174.084-.441v-.409c0-.48 0-.72-.102-.928-.101-.208-.291-.355-.67-.65l-7-5.445c-.59-.459-.885-.688-1.228-.688-.343 0-.638.23-1.228.688l-7 5.445c-.379.295-.569.442-.67.65-.102.208-.102.448-.102.928v.409Z" />
+                    <path fill="currentColor" d="M11.5 15.5h1A1.5 1.5 0 0 1 14 17v3.5h-4V17a1.5 1.5 0 0 1 1.5-1.5Z" />
+                    <path fill="currentColor"
+                      d="M17.5 5h-1a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5Z" />
+                  </svg>
+                  <span>HOME</span>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a x-data="navLink" href="topik1.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2">
+                  <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40"></div>
+                  <span>TOPIK 1</span>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a x-data="navLink" href="topik2.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2">
+                  <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40"></div>
+                  <span>TOPIK 2</span>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a x-data="navLink" href="topik3.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2">
+                  <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40"></div>
+                  <span>TOPIK 3</span>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a x-data="navLink" href="topik4.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2">
+                  <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40"></div>
+                  <span>TOPIK 4</span>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a x-data="navLink" href="topik5.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2">
+                  <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40"></div>
+                  <span>TOPIK 5</span>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a x-data="navLink" href="topik6.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2">
+                  <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40"></div>
+                  <span>TOPIK 6</span>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a x-data="navLink" href="topik7.html"
+                :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
+                class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                <div class="flex items-center space-x-2">
+                  <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40"></div>
+                  <span>TOPIK 7</span>
+                </div>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- App Header Wrapper-->
+    <nav class="header before:bg-white dark:before:bg-navy-750 print:hidden">
+      <!-- App Header  -->
+      <div class="header-container relative flex w-full bg-white dark:bg-navy-700 print:hidden sm:flex-col">
+        <!-- Header Items -->
+        <div class="flex w-full items-center justify-between sm:h-16">
+          <!-- Left: Sidebar Toggle Button -->
+          <div class="w-fit flex sm:hidden">
+            <button class="mr-1"><img
+                class="h-11 w-11 transition-transform duration-500 ease-in-out hover:rotate-[360deg]"
+                src="src/images/app-logo.svg" alt="logo" /></button>
+
+            <button
+              class="menu-toggle ml-1 flex h-11 w-11 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
+              :class="$store.global.isSidebarExpanded && 'active'"
+              @click="$store.global.isSidebarExpanded = !$store.global.isSidebarExpanded">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
+          <div class="hidden items-center space-x-2 sm:flex">
+            <a href="index.html">
+              <img class="h-10 w-10 transition-transform duration-500 ease-in-out hover:rotate-[360deg]"
+                src="src/images/app-logo.svg" alt="logo" />
+            </a>
+            <span class="text-xl font-semibold uppercase text-slate-700 dark:text-navy-100">
+              COMPUTASIONAL THINGKING
+            </span>
+          </div>
+
+          <!-- Right: Header buttons -->
+          <div class="-mr-1.5 flex items-center space-x-2">
+            <!-- Mobile Search Toggle -->
+
+            <button @click="$store.global.isSearchbarActive = !$store.global.isSearchbarActive"
+              class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:hidden">
+              <svg xmlns="../www.w3.org/2000/svg.html" class="h-5.5 w-5.5 text-slate-500 dark:text-navy-100" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+
+
+            <div
+              class="is-scrollbar-hidden justify-center -mx-2 hidden  h-12 items-center space-x-2 overflow-y-auto font-inter lg:flex">
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="index.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" xmlns="../www.w3.org/2000/svg.html" fill="none" viewBox="0 0 24 24">
+                    <path fill="currentColor" fill-opacity=".3"
+                      d="M5 14.059c0-1.01 0-1.514.222-1.945.221-.43.632-.724 1.453-1.31l4.163-2.974c.56-.4.842-.601 1.162-.601.32 0 .601.2 1.162.601l4.163 2.974c.821.586 1.232.88 1.453 1.31.222.43.222.935.222 1.945V19c0 .943 0 1.414-.293 1.707C18.414 21 17.943 21 17 21H7c-.943 0-1.414 0-1.707-.293C5 20.414 5 19.943 5 19v-4.94Z" />
+                    <path fill="currentColor"
+                      d="M3 12.387c0 .267 0 .4.084.441.084.041.19-.04.4-.204l7.288-5.669c.59-.459.885-.688 1.228-.688.343 0 .638.23 1.228.688l7.288 5.669c.21.163.316.245.4.204.084-.04.084-.174.084-.441v-.409c0-.48 0-.72-.102-.928-.101-.208-.291-.355-.67-.65l-7-5.445c-.59-.459-.885-.688-1.228-.688-.343 0-.638.23-1.228.688l-7 5.445c-.379.295-.569.442-.67.65-.102.208-.102.448-.102.928v.409Z" />
+                    <path fill="currentColor" d="M11.5 15.5h1A1.5 1.5 0 0 1 14 17v3.5h-4V17a1.5 1.5 0 0 1 1.5-1.5Z" />
+                    <path fill="currentColor"
+                      d="M17.5 5h-1a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5Z" />
+                  </svg>
+                  <span>Home</span>
+                </a>
+              </div>
+
+
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="topik1.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="../www.w3.org/2000/svg.html">
+                    <path fill-opacity="0.5"
+                      d="M14.2498 16C14.2498 17.5487 13.576 18.9487 12.4998 19.9025C11.5723 20.7425 10.3473 21.25 8.99976 21.25C6.10351 21.25 3.74976 18.8962 3.74976 16C3.74976 13.585 5.39476 11.5375 7.61726 10.9337C8.22101 12.4562 9.51601 13.6287 11.1173 14.0662C11.5548 14.1887 12.0185 14.25 12.4998 14.25C12.981 14.25 13.4448 14.1887 13.8823 14.0662C14.1185 14.6612 14.2498 15.3175 14.2498 16Z"
+                      fill="currentColor" />
+                    <path
+                      d="M17.75 9.00012C17.75 9.68262 17.6187 10.3389 17.3825 10.9339C16.7787 12.4564 15.4837 13.6289 13.8825 14.0664C13.445 14.1889 12.9813 14.2501 12.5 14.2501C12.0187 14.2501 11.555 14.1889 11.1175 14.0664C9.51625 13.6289 8.22125 12.4564 7.6175 10.9339C7.38125 10.3389 7.25 9.68262 7.25 9.00012C7.25 6.10387 9.60375 3.75012 12.5 3.75012C15.3962 3.75012 17.75 6.10387 17.75 9.00012Z"
+                      fill="currentColor" />
+                    <path fill-opacity="0.3"
+                      d="M21.25 16C21.25 18.8962 18.8962 21.25 16 21.25C14.6525 21.25 13.4275 20.7425 12.5 19.9025C13.5763 18.9487 14.25 17.5487 14.25 16C14.25 15.3175 14.1187 14.6612 13.8825 14.0662C15.4837 13.6287 16.7787 12.4562 17.3825 10.9337C19.605 11.5375 21.25 13.585 21.25 16Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Topik 1</span>
+                </a>
+              </div>
+
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="topik2.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="../www.w3.org/2000/svg.html">
+                    <path fill-opacity="0.5"
+                      d="M14.2498 16C14.2498 17.5487 13.576 18.9487 12.4998 19.9025C11.5723 20.7425 10.3473 21.25 8.99976 21.25C6.10351 21.25 3.74976 18.8962 3.74976 16C3.74976 13.585 5.39476 11.5375 7.61726 10.9337C8.22101 12.4562 9.51601 13.6287 11.1173 14.0662C11.5548 14.1887 12.0185 14.25 12.4998 14.25C12.981 14.25 13.4448 14.1887 13.8823 14.0662C14.1185 14.6612 14.2498 15.3175 14.2498 16Z"
+                      fill="currentColor" />
+                    <path
+                      d="M17.75 9.00012C17.75 9.68262 17.6187 10.3389 17.3825 10.9339C16.7787 12.4564 15.4837 13.6289 13.8825 14.0664C13.445 14.1889 12.9813 14.2501 12.5 14.2501C12.0187 14.2501 11.555 14.1889 11.1175 14.0664C9.51625 13.6289 8.22125 12.4564 7.6175 10.9339C7.38125 10.3389 7.25 9.68262 7.25 9.00012C7.25 6.10387 9.60375 3.75012 12.5 3.75012C15.3962 3.75012 17.75 6.10387 17.75 9.00012Z"
+                      fill="currentColor" />
+                    <path fill-opacity="0.3"
+                      d="M21.25 16C21.25 18.8962 18.8962 21.25 16 21.25C14.6525 21.25 13.4275 20.7425 12.5 19.9025C13.5763 18.9487 14.25 17.5487 14.25 16C14.25 15.3175 14.1187 14.6612 13.8825 14.0662C15.4837 13.6287 16.7787 12.4562 17.3825 10.9337C19.605 11.5375 21.25 13.585 21.25 16Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Topik 2</span>
+                </a>
+              </div>
+
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="topik3.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="../www.w3.org/2000/svg.html">
+                    <path fill-opacity="0.5"
+                      d="M14.2498 16C14.2498 17.5487 13.576 18.9487 12.4998 19.9025C11.5723 20.7425 10.3473 21.25 8.99976 21.25C6.10351 21.25 3.74976 18.8962 3.74976 16C3.74976 13.585 5.39476 11.5375 7.61726 10.9337C8.22101 12.4562 9.51601 13.6287 11.1173 14.0662C11.5548 14.1887 12.0185 14.25 12.4998 14.25C12.981 14.25 13.4448 14.1887 13.8823 14.0662C14.1185 14.6612 14.2498 15.3175 14.2498 16Z"
+                      fill="currentColor" />
+                    <path
+                      d="M17.75 9.00012C17.75 9.68262 17.6187 10.3389 17.3825 10.9339C16.7787 12.4564 15.4837 13.6289 13.8825 14.0664C13.445 14.1889 12.9813 14.2501 12.5 14.2501C12.0187 14.2501 11.555 14.1889 11.1175 14.0664C9.51625 13.6289 8.22125 12.4564 7.6175 10.9339C7.38125 10.3389 7.25 9.68262 7.25 9.00012C7.25 6.10387 9.60375 3.75012 12.5 3.75012C15.3962 3.75012 17.75 6.10387 17.75 9.00012Z"
+                      fill="currentColor" />
+                    <path fill-opacity="0.3"
+                      d="M21.25 16C21.25 18.8962 18.8962 21.25 16 21.25C14.6525 21.25 13.4275 20.7425 12.5 19.9025C13.5763 18.9487 14.25 17.5487 14.25 16C14.25 15.3175 14.1187 14.6612 13.8825 14.0662C15.4837 13.6287 16.7787 12.4562 17.3825 10.9337C19.605 11.5375 21.25 13.585 21.25 16Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Topik 3</span>
+                </a>
+              </div>
+
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="topik4.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="../www.w3.org/2000/svg.html">
+                    <path fill-opacity="0.5"
+                      d="M14.2498 16C14.2498 17.5487 13.576 18.9487 12.4998 19.9025C11.5723 20.7425 10.3473 21.25 8.99976 21.25C6.10351 21.25 3.74976 18.8962 3.74976 16C3.74976 13.585 5.39476 11.5375 7.61726 10.9337C8.22101 12.4562 9.51601 13.6287 11.1173 14.0662C11.5548 14.1887 12.0185 14.25 12.4998 14.25C12.981 14.25 13.4448 14.1887 13.8823 14.0662C14.1185 14.6612 14.2498 15.3175 14.2498 16Z"
+                      fill="currentColor" />
+                    <path
+                      d="M17.75 9.00012C17.75 9.68262 17.6187 10.3389 17.3825 10.9339C16.7787 12.4564 15.4837 13.6289 13.8825 14.0664C13.445 14.1889 12.9813 14.2501 12.5 14.2501C12.0187 14.2501 11.555 14.1889 11.1175 14.0664C9.51625 13.6289 8.22125 12.4564 7.6175 10.9339C7.38125 10.3389 7.25 9.68262 7.25 9.00012C7.25 6.10387 9.60375 3.75012 12.5 3.75012C15.3962 3.75012 17.75 6.10387 17.75 9.00012Z"
+                      fill="currentColor" />
+                    <path fill-opacity="0.3"
+                      d="M21.25 16C21.25 18.8962 18.8962 21.25 16 21.25C14.6525 21.25 13.4275 20.7425 12.5 19.9025C13.5763 18.9487 14.25 17.5487 14.25 16C14.25 15.3175 14.1187 14.6612 13.8825 14.0662C15.4837 13.6287 16.7787 12.4562 17.3825 10.9337C19.605 11.5375 21.25 13.585 21.25 16Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Topik 4</span>
+                </a>
+              </div>
+
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="topik5.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="../www.w3.org/2000/svg.html">
+                    <path fill-opacity="0.5"
+                      d="M14.2498 16C14.2498 17.5487 13.576 18.9487 12.4998 19.9025C11.5723 20.7425 10.3473 21.25 8.99976 21.25C6.10351 21.25 3.74976 18.8962 3.74976 16C3.74976 13.585 5.39476 11.5375 7.61726 10.9337C8.22101 12.4562 9.51601 13.6287 11.1173 14.0662C11.5548 14.1887 12.0185 14.25 12.4998 14.25C12.981 14.25 13.4448 14.1887 13.8823 14.0662C14.1185 14.6612 14.2498 15.3175 14.2498 16Z"
+                      fill="currentColor" />
+                    <path
+                      d="M17.75 9.00012C17.75 9.68262 17.6187 10.3389 17.3825 10.9339C16.7787 12.4564 15.4837 13.6289 13.8825 14.0664C13.445 14.1889 12.9813 14.2501 12.5 14.2501C12.0187 14.2501 11.555 14.1889 11.1175 14.0664C9.51625 13.6289 8.22125 12.4564 7.6175 10.9339C7.38125 10.3389 7.25 9.68262 7.25 9.00012C7.25 6.10387 9.60375 3.75012 12.5 3.75012C15.3962 3.75012 17.75 6.10387 17.75 9.00012Z"
+                      fill="currentColor" />
+                    <path fill-opacity="0.3"
+                      d="M21.25 16C21.25 18.8962 18.8962 21.25 16 21.25C14.6525 21.25 13.4275 20.7425 12.5 19.9025C13.5763 18.9487 14.25 17.5487 14.25 16C14.25 15.3175 14.1187 14.6612 13.8825 14.0662C15.4837 13.6287 16.7787 12.4562 17.3825 10.9337C19.605 11.5375 21.25 13.585 21.25 16Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Topik 5</span>
+                </a>
+              </div>
+
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="topik6.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="../www.w3.org/2000/svg.html">
+                    <path fill-opacity="0.5"
+                      d="M14.2498 16C14.2498 17.5487 13.576 18.9487 12.4998 19.9025C11.5723 20.7425 10.3473 21.25 8.99976 21.25C6.10351 21.25 3.74976 18.8962 3.74976 16C3.74976 13.585 5.39476 11.5375 7.61726 10.9337C8.22101 12.4562 9.51601 13.6287 11.1173 14.0662C11.5548 14.1887 12.0185 14.25 12.4998 14.25C12.981 14.25 13.4448 14.1887 13.8823 14.0662C14.1185 14.6612 14.2498 15.3175 14.2498 16Z"
+                      fill="currentColor" />
+                    <path
+                      d="M17.75 9.00012C17.75 9.68262 17.6187 10.3389 17.3825 10.9339C16.7787 12.4564 15.4837 13.6289 13.8825 14.0664C13.445 14.1889 12.9813 14.2501 12.5 14.2501C12.0187 14.2501 11.555 14.1889 11.1175 14.0664C9.51625 13.6289 8.22125 12.4564 7.6175 10.9339C7.38125 10.3389 7.25 9.68262 7.25 9.00012C7.25 6.10387 9.60375 3.75012 12.5 3.75012C15.3962 3.75012 17.75 6.10387 17.75 9.00012Z"
+                      fill="currentColor" />
+                    <path fill-opacity="0.3"
+                      d="M21.25 16C21.25 18.8962 18.8962 21.25 16 21.25C14.6525 21.25 13.4275 20.7425 12.5 19.9025C13.5763 18.9487 14.25 17.5487 14.25 16C14.25 15.3175 14.1187 14.6612 13.8825 14.0662C15.4837 13.6287 16.7787 12.4562 17.3825 10.9337C19.605 11.5375 21.25 13.585 21.25 16Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Topik 6</span>
+                </a>
+              </div>
+
+              <div x-data="usePopper({placement:'bottom-start',offset:4})"
+                @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+                <a href="topik7.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                  class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+                  :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="../www.w3.org/2000/svg.html">
+                    <path fill-opacity="0.5"
+                      d="M14.2498 16C14.2498 17.5487 13.576 18.9487 12.4998 19.9025C11.5723 20.7425 10.3473 21.25 8.99976 21.25C6.10351 21.25 3.74976 18.8962 3.74976 16C3.74976 13.585 5.39476 11.5375 7.61726 10.9337C8.22101 12.4562 9.51601 13.6287 11.1173 14.0662C11.5548 14.1887 12.0185 14.25 12.4998 14.25C12.981 14.25 13.4448 14.1887 13.8823 14.0662C14.1185 14.6612 14.2498 15.3175 14.2498 16Z"
+                      fill="currentColor" />
+                    <path
+                      d="M17.75 9.00012C17.75 9.68262 17.6187 10.3389 17.3825 10.9339C16.7787 12.4564 15.4837 13.6289 13.8825 14.0664C13.445 14.1889 12.9813 14.2501 12.5 14.2501C12.0187 14.2501 11.555 14.1889 11.1175 14.0664C9.51625 13.6289 8.22125 12.4564 7.6175 10.9339C7.38125 10.3389 7.25 9.68262 7.25 9.00012C7.25 6.10387 9.60375 3.75012 12.5 3.75012C15.3962 3.75012 17.75 6.10387 17.75 9.00012Z"
+                      fill="currentColor" />
+                    <path fill-opacity="0.3"
+                      d="M21.25 16C21.25 18.8962 18.8962 21.25 16 21.25C14.6525 21.25 13.4275 20.7425 12.5 19.9025C13.5763 18.9487 14.25 17.5487 14.25 16C14.25 15.3175 14.1187 14.6612 13.8825 14.0662C15.4837 13.6287 16.7787 12.4562 17.3825 10.9337C19.605 11.5375 21.25 13.585 21.25 16Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Topik 7</span>
+                </a>
+              </div>
+
+
+            </div>
+            <!-- Dark Mode Toggle -->
+            <button @click="$store.global.isDarkModeEnabled = !$store.global.isDarkModeEnabled"
+              class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+              <svg x-show="$store.global.isDarkModeEnabled"
+                x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
+                x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static"
+                class="h-6 w-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z" />
+              </svg>
+              <svg xmlns="../www.w3.org/2000/svg.html" x-show="!$store.global.isDarkModeEnabled"
+                x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
+                x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static"
+                class="h-6 w-6 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- MEDIUM -->
+        <!-- <div
+          class="is-scrollbar-hidden sm:flex hidden lg:hidden justify-center -mx-2  h-12 items-center space-x-2 overflow-y-auto font-inter ">
+          <div x-data="usePopper({placement:'bottom-start',offset:4})"
+            @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
+            <a href="pages-starter-7.html" x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+              class="btn space-x-2 px-2 py-1.5 text-xs+ font-medium leading-none"
+              :class="isShowPopper ? 'bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100' : 'text-slate-600 hover:text-slate-800 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25'">
+              <svg class="h-6 w-6" xmlns="../www.w3.org/2000/svg.html" fill="none" viewBox="0 0 24 24">
+                <path fill="currentColor" fill-opacity=".3"
+                  d="M5 14.059c0-1.01 0-1.514.222-1.945.221-.43.632-.724 1.453-1.31l4.163-2.974c.56-.4.842-.601 1.162-.601.32 0 .601.2 1.162.601l4.163 2.974c.821.586 1.232.88 1.453 1.31.222.43.222.935.222 1.945V19c0 .943 0 1.414-.293 1.707C18.414 21 17.943 21 17 21H7c-.943 0-1.414 0-1.707-.293C5 20.414 5 19.943 5 19v-4.94Z" />
+                <path fill="currentColor"
+                  d="M3 12.387c0 .267 0 .4.084.441.084.041.19-.04.4-.204l7.288-5.669c.59-.459.885-.688 1.228-.688.343 0 .638.23 1.228.688l7.288 5.669c.21.163.316.245.4.204.084-.04.084-.174.084-.441v-.409c0-.48 0-.72-.102-.928-.101-.208-.291-.355-.67-.65l-7-5.445c-.59-.459-.885-.688-1.228-.688-.343 0-.638.23-1.228.688l-7 5.445c-.379.295-.569.442-.67.65-.102.208-.102.448-.102.928v.409Z" />
+                <path fill="currentColor" d="M11.5 15.5h1A1.5 1.5 0 0 1 14 17v3.5h-4V17a1.5 1.5 0 0 1 1.5-1.5Z" />
+                <path fill="currentColor"
+                  d="M17.5 5h-1a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5Z" />
+              </svg>
+              <span>Dashboards</span>
+            </a>
+          </div>        
+        </div> -->
+
+      </div>
+    </nav>
+
+    <!-- Mobile Searchbar -->
+    <div x-show="$store.breakpoints.isXs && $store.global.isSearchbarActive" x-transition:enter="easy-out transition-all" x-transition:enter-start="opacity-0 scale-105" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="easy-in transition-all" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="fixed inset-0 z-[100] flex flex-col bg-white dark:bg-navy-700 sm:hidden">
+      <div class="flex items-center space-x-2 bg-slate-100 px-3 pt-2 dark:bg-navy-800">
+        <button class="btn -ml-1.5 h-7 w-7 shrink-0 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"  @click="$store.global.isSearchbarActive = false">
+          <svg xmlns="../www.w3.org/2000/svg.html" class="h-5 w-5" fill="none" stroke-width="1.5" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <input x-effect="$store.global.isSearchbarActive && $nextTick(() => $el.focus() );" class="form-input h-8 w-full bg-transparent placeholder-slate-400 dark:placeholder-navy-300" type="text" placeholder="Search here..." />
+      </div>
+
+      <div class="is-scrollbar-hidden overflow-y-auto overscroll-contain pb-2">
+
+        <div class="mt-1 font-inter font-medium">
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100" href="index.html">
+            <svg xmlns="../www.w3.org/2000/svg.html" class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>Home</span>
+          </a>
+
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100" href="topik1.html">
+            <svg xmlns="../www.w3.org/2000/svg.html" class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>TOPIK 1</span>
+          </a>
+
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+            href="topik2.html">
+            <svg xmlns="../www.w3.org/2000/svg.html"
+              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>TOPIK 2</span>
+          </a>
+
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+            href="topik3.html">
+            <svg xmlns="../www.w3.org/2000/svg.html"
+              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>TOPIK 3</span>
+          </a>
+
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+            href="topik4.html">
+            <svg xmlns="../www.w3.org/2000/svg.html"
+              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>TOPIK 4</span>
+          </a>
+
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+            href="topik5.html">
+            <svg xmlns="../www.w3.org/2000/svg.html"
+              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>TOPIK 5</span>
+          </a>
+
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+            href="topik6.html">
+            <svg xmlns="../www.w3.org/2000/svg.html"
+              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>TOPIK 6</span>
+          </a>
+
+          <a class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+            href="topik7.html">
+            <svg xmlns="../www.w3.org/2000/svg.html"
+              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>TOPIK 7</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-contentx w-full ">
+
+      <div class="main-content w-full px-[var(--margin-x)]">
+        <div class="card p-4 lg:p-6">
+          <!-- Author -->
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div x-data="usePopper({
+           offset: 12,
+           placement: 'bottom',
+           modifiers: [
+              {name: 'preventOverflow', options: {padding: 10}}
+           ]                     
+        })" class="flex" @mouseleave="isShowPopper = false" @mouseenter="isShowPopper = true">
+                  <div x-ref="popperRef" class="avatar h-12 w-12">
+                    <img class="mask is-squircle" src="src/images/avatar/BG-BIRU JAS HITAM.png" alt="avatar">
+                  </div>
+
+                </div>
+                <div>
+                  <a href="src/#"
+                    class="font-medium text-slate-700 line-clamp-1 hover:text-primary focus:text-primary dark:text-navy-100 dark:hover:text-accent-light dark:focus:text-accent-light">
+                    Zulham Abidin
+                  </a>
+                  <div class="mt-1.5 flex items-center text-xs">
+                    <span class="line-clamp-1">28 Desember, 2024</span>
+                    <div class="mx-2 my-0.5 w-px self-stretch bg-white/20"></div>
+                    <p class="shrink-0">8 min red</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex space-x-3">
+                <div class="hidden sm:flex">
+                  <button
+                    class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                    <svg xmlns="../www.w3.org/2000/svg.html" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                    </svg>
+                  </button>
+                  <button
+                    class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                    <i class="fab fa-twitter text-base"></i>
+                  </button>
+                  <button
+                    class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                    <i class="fab fa-linkedin text-base"></i>
+                  </button>
+                  <button
+                    class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                    <i class="fab fa-instagram text-base"></i>
+                  </button>
+                  <button
+                    class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                    <i class="fab fa-facebook text-base"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center space-x-3 sm:hidden">
+
+              <div class="flex">
+                <button
+                  class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                  <i class="fab fa-twitter text-base"></i>
+                </button>
+                <button
+                  class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                  <i class="fab fa-linkedin text-base"></i>
+                </button>
+                <button
+                  class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                  <i class="fab fa-instagram text-base"></i>
+                </button>
+                <button
+                  class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                  <i class="fab fa-facebook text-base"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 text-base text-slate-600 dark:text-navy-50 text-justify leading-8">
+            <h1 class="text-2xl font-medium text-center text-slate-900 dark:text-navy-50 lg:text-2xl">Topik 5</h1>
+            <h1 class="mb-10 text-xl font-medium text-center text-slate-900 dark:text-navy-50 lg:text-2xl">UJIAN TENGAH SEMESTER</h1>
+
+
+            <h1 class="text-xl font-medium text-slate-900 dark:text-navy-50 lg:text-2xl">Soal Bebras: Mencatat Huruf</h1>
+                <p class="mt-4 font-medium text-slate-700 dark:text-navy-50">
+                    Bebras Zac dan Bebras Pan ingin melakukan perjalanan sepanjang lintasan seperti pada gambar di bawah ini. Zac ingin berjalan dari titik 1 ke titik 2 dan Pan ingin berjalan dari titik 2 ke titik 1. Sepanjang lintasan, terdapat huruf-huruf (‘B’, ‘E’,’R’,’A’, dan ‘S’) yang harus Zac dan Pan catat. Zac dan Pan hanya dapat mencatat huruf yang terletak pada sisi kiri mereka. Ketika Zac dan Pan mencapai akhir dari lintasan, mereka akan menghasilkan sebarisan huruf yang sudah mereka kumpulkan sebagai catatan.
+                </p>
+                <img class="mx-auto" src="src/images/avatar/bebras.png" alt="" style="width: 50%;">
+                <div class="mt-6">
+                    <h2 class=" font-semibold text-slate-900 dark:text-navy-50">1. Pertanyaan:</h2>
+                    <p class="mt-2 text-lg font-medium text-slate-600 dark:text-navy-50">Apakah barisan huruf yang berhasil dicatat oleh masing-masing berang-berang tersebut di akhir perjalanan mereka?</p>
+                    <ul class="list-disc pl-5 mt-2">
+                        <li class="text-lg">A. Zac: BRSBAASE, Pan: RBSRBAE</li>
+                        <li class="text-lg">B. Zac: BRSEBAASE, Pan: RBBSRBAE</li>
+                        <li class="text-lg">C. Zac: BRSEBAASE, Pan: RBSRBAE</li>
+                        <li class="text-lg">D. Zac: BRSEBAAS, Pan: RBSRBE</li>
+                    </ul>
+                </div>
+                <div class="mt-6">
+                    <h2 class=" font-semibold text-slate-900 dark:text-navy-50">Berikut ini penyelesaian soal di atas menggunakan penerapan computational thinking:</h2>
+                    
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <h3 class="font-medium text-slate-600 dark:text-navy-50">a. Dekomposisi</h3>
+                            <p class="text-base text-slate-600 dark:text-navy-50">Memecah masalah menjadi bagian yang lebih kecil: Tantangan ini dapat dipecah menjadi dua jalur perjalanan berbeda, yaitu perjalanan Zac dari titik 1 ke titik 2 dan Pan dari titik 2 ke titik 1. Setiap perjalanan memiliki aturan yang sama: Zac dan Pan hanya mencatat huruf yang ada di sebelah kiri mereka.</p>
+                        </li>
+                        
+                        <li>
+                            <h3 class="font-medium text-slate-600 dark:text-navy-50">b. Pengenalan Pola</h3>
+                            <p class="text-base text-slate-600 dark:text-navy-50">Dengan melihat beberapa ketentuan kita dapat menentukan pola: Zac melakukan perjalanan dari titik 1 ke titik 2, Sedangkan Pan melakukan perjalanan dari titik 2 ke titik 1. Zac dan Pan hanya dapat mencatat teks pada sisi kiri mereka. Mereka dapat melakukan perjalanan berdasarkan pola dan aturan yang telah ditentukan.</p>
+                        </li>
+                        
+                        <li>
+                            <h3 class="font-medium text-slate-600 dark:text-navy-50">c. Abstraksi</h3>
+                            <p class="text-base text-slate-600 dark:text-navy-50">Dalam tantangan ini, kita tidak perlu memperhatikan detail. Karena sebelumnya kita telah menentukan pola, sekarang kita hanya fokus pada huruf yang ada di sebelah kiri Zac dan Pan pada saat mereka bergerak.</p>
+                        </li>
+                        
+                        <li>
+                            <h3 class="font-medium text-slate-600 dark:text-navy-50">d. Algoritma</h3>
+                            <p class="text-base text-slate-600 dark:text-navy-50">Zac dan Pan dapat menggunakan langkah sederhana dengan melihat pola dan aturan yang telah ditentukan. Misalnya, Zac melakukan perjalanan dari titik 1 ke titik 2, sedangkan Pan berjalan dari titik 2 ke titik 1.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mt-10">
+                    <h1 class="text-xl font-medium text-slate-900 dark:text-navy-50 lg:text-2xl">Soal Pisa: Pelari</h1>
+                    <p class="text-base text-slate-600 dark:text-navy-50 mt-4">
+                        <strong>Keterangan:</strong><br>
+                        Merasa nyaman dengan sepatu lari Anda. Selama 14 tahun, Pusat Kedokteran Olahraga Lyon (Prancis) telah mempelajari cedera para pemain olahraga muda dan profesional olahraga. Penelitian ini telah menetapkan bahwa cara terbaik adalah pencegahan... dan sepatu yang bagus.
+                    </p>
+                    
+                    <p class="text-base text-slate-600 dark:text-navy-50 mt-4">
+                        <strong>Terbentur, terjatuh, keausan</strong><br>
+                        Delapan belas persen pemain olahraga berusia 8 hingga 12 tahun sudah mengalami cedera tumit. Tulang rawan pergelangan kaki pemain sepak bola tidak merespons guncangan dengan baik, dan 5% dari para profesional telah menemukan sendiri bahwa itu adalah titik yang sangat lemah. Tulang rawan sendi lutut yang rapuh juga bisa rusak dan jika tidak dirawat sejak kecil (usia 10-12 tahun), hal ini dapat menyebabkan osteoartritis dini. Pinggul juga tidak luput dari kerusakan dan, terutama saat lelah, pemain berisiko mengalami patah tulang akibat terjatuh atau benturan. Menurut penelitian, pemain sepak bola yang telah bermain selama lebih dari sepuluh tahun memiliki pertumbuhan tulang pada tibia atau tumit. Inilah yang dikenal sebagai "kaki pesepakbola", kelainan bentuk yang disebabkan oleh sepatu dengan sol dan bagian pergelangan kaki yang terlalu fleksibel.
+                    </p>
+                
+                    <p class="text-base text-slate-600 dark:text-navy-50 mt-4">
+                        <strong>Melindungi, mendukung, menstabilkan, menyerap</strong><br>
+                        Jika sepatu terlalu kaku, maka akan membatasi gerakan. Jika terlalu lentur, maka akan meningkatkan risiko cedera dan keseleo. Sepatu olahraga yang baik harus memenuhi empat kriteria: Pertama, sepatu harus memberikan perlindungan luar: menahan benturan dari bola atau pemain lain, mengatasi ketidakrataan tanah, dan menjaga kaki tetap hangat dan kering bahkan saat cuaca dingin dan hujan. Sepatu ini harus menopang kaki, dan khususnya sendi pergelangan kaki, untuk menghindari keseleo, pembengkakan dan masalah lainnya, yang bahkan dapat mempengaruhi lutut. Sepatu ini juga harus memberikan stabilitas yang baik kepada pemain agar mereka tidak terpeleset di tanah yang basah atau tergelincir di permukaan yang terlalu kering. Terakhir, sepatu ini harus menyerap guncangan, terutama yang diderita oleh pemain bola voli dan bola basket yang terus-menerus melompat.
+                    </p>
+                
+                    <p class="text-base text-slate-600 dark:text-navy-50 mt-4">
+                        <strong>Kaki kering</strong><br>
+                        Untuk menghindari kondisi ringan namun menyakitkan seperti lecet atau bahkan pecah-pecah atau kutu air (infeksi jamur), sepatu harus memungkinkan penguapan keringat dan harus mencegah kelembapan dari luar masuk. Bahan yang ideal untuk ini adalah kulit, yang bisa tahan air untuk mencegah sepatu basah kuyup saat hujan turun.
+                    </p>
+
+                    <img class="mx-auto mt-4 mb-4" src="src/images/avatar/lari.png" alt="" style="width: 50%;">
+                
+                    <h3 class=" text-slate-900 dark:text-navy-50 mt-6">Gunakan artikel di atas sebelumnya untuk menjawab pertanyaan-pertanyaan di bawah ini :</h3>
+                    
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <h4 class="font-medium text-slate-600 dark:text-navy-50">1. Apa yang ingin penulis tunjukkan dalam teks tersebut?</h4>
+                            <ul class="list-disc pl-5">
+                                <li>a) Bahwa kualitas banyak sepatu olahraga telah meningkat pesat.</li>
+                                <li>b) Sebaiknya Anda tidak bermain sepak bola jika berusia di bawah 12 tahun.</li>
+                                <li>c) Bahwa anak muda semakin banyak mengalami cedera karena kondisi fisik mereka yang buruk.</li>
+                                <li>d) Sangat penting bagi pemain olahraga muda untuk mengenakan sepatu olahraga yang baik.</li>
+                            </ul>
+                            <p class="text-base text-slate-600 dark:text-navy-50 mt-2">Jawaban: D</p>
+                        </li>
+                    </ul>
+                    
+                    <h3 class=" text-slate-900 dark:text-navy-50 mt-6">Penyelesaian Dengan 4 Aspek Computational Thinking:</h3>
+                
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <h4 class="font-medium text-slate-600 dark:text-navy-50">Decomposition</h4>
+                            <p class="text-base text-slate-600 dark:text-navy-50 indent-5">Pisahkan informasi dalam teks untuk mengidentifikasi tujuan utama penulis, yaitu pentingnya sepatu olahraga dalam mencegah cedera.</p>
+                        </li>
+                        
+                        <li>
+                            <h4 class="font-medium text-slate-600 dark:text-navy-50">Pattern Recognition</h4>
+                            <p class="text-base text-slate-600 dark:text-navy-50 indent-5">Kenali pola fokus teks yang berkisar pada pentingnya perlindungan dan kualitas sepatu bagi para pemain muda.</p>
+                        </li>
+                        
+                        <li>
+                            <h4 class="font-medium text-slate-600 dark:text-navy-50">Abstraction</h4>
+                            <p class="text-base text-slate-600 dark:text-navy-50 indent-5">Sederhanakan informasi menjadi kesimpulan utama tentang manfaat sepatu olahraga berkualitas bagi pemain muda.</p>
+                        </li>
+                        
+                        <li>
+                            <h4 class="font-medium text-slate-600 dark:text-navy-50">Algorithm Design</h4>
+                            <p class="text-base text-slate-600 dark:text-navy-50 indent-5">Pilih jawaban dari opsi yang paling sesuai dengan poin utama teks.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+          <div class="mt-4">
+            <a href="topik6.html" class="w-full btn bg-primary font-medium text-white hover:bg-primary-focus hover:shadow-lg hover:shadow-primary/50 focus:bg-primary-focus focus:shadow-lg focus:shadow-primary/50 active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:hover:shadow-accent/50 dark:focus:bg-accent-focus dark:focus:shadow-accent/50 dark:active:bg-accent/90">Lihat Topik Selanjutnya</a>
+          </div> 
+
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <div id="x-teleport-target"></div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => Alpine.start());
+  </script>
+
+</body>
+
+</html>
